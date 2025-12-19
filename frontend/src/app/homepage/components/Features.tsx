@@ -7,7 +7,14 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { Brain, Eye, BarChart3, Zap, Shield, Code2 } from "lucide-react";
+import {
+  Brain,
+  Eye,
+  BarChart3,
+  Zap,
+  Cpu,
+  FunnelPlus,
+} from "lucide-react";
 
 const features = [
   {
@@ -39,17 +46,17 @@ const features = [
     gradient: "from-purple-400 to-blue-500",
   },
   {
-    title: "Developer Friendly",
+    title: "Factory Automation",
     description:
-      "Easy-to-use API and comprehensive documentation for seamless integration.",
-    icon: Code2,
+      "Enhance production lines with real-time visual monitoring and automated quality control systems.",
+    icon: Cpu,
     gradient: "from-blue-500 to-purple-600",
   },
   {
-    title: "Secure & Private",
+    title: "Defect Filtration",
     description:
-      "Your data remains yours with enterprise-grade security and privacy controls.",
-    icon: Shield,
+      "Automatically identify and classify manufacturing defects in real-time with high accuracy using advanced computer vision.",
+    icon: FunnelPlus,
     gradient: "from-purple-600 to-blue-600",
   },
 ];

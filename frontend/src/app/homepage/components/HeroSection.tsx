@@ -25,15 +25,15 @@ const HeroSection = () => {
               AI-Powered Computer Vision Platform
             </div>
             <h1 className="text-4xl font-bold tracking-tight text-foreground sm:text-5xl md:text-6xl">
-              Transform Your Vision with{" "}
+              Revolutionizing factory automation with{" "}
               <span className="bg-linear-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent">
-                AI Intelligence
+                Computer Vision
               </span>
             </h1>
             <p className="mx-auto mt-6 max-w-2xl text-lg leading-8 text-muted-foreground lg:mx-0">
-              Novum brings cutting-edge computer vision to your fingertips.
-              Analyze, understand, and interact with visual data like never
-              before using our advanced AI platform.
+              Revolutionize your manufacturing process with AI-powered visual
+              inspection. Detect defects, optimize production, and ensure
+              quality control with our advanced computer vision solutions.
             </p>
             <div className="mt-10 flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
               <Link href="/dashboard">
@@ -56,7 +56,7 @@ const HeroSection = () => {
             {/* Main image */}
             <div className="absolute top-0 right-0 w-3/4 h-3/4 rounded-2xl overflow-hidden border border-border/20 shadow-xl">
               <Image
-                src="/images/carsid.png"
+                src="/images/boxid.png"
                 alt="AI visualization"
                 fill
                 className="object-cover"
