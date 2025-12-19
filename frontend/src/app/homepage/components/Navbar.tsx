@@ -3,7 +3,13 @@
 import Link from "next/link";
 import { BrainCog, Menu } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
+import {
+  Sheet,
+  SheetContent,
+  SheetHeader,
+  SheetTitle,
+  SheetTrigger,
+} from "@/components/ui/sheet";
 import { ArrowRight } from "lucide-react";
 
 const Navbar = () => {
@@ -24,13 +30,13 @@ const Navbar = () => {
         <nav className="hidden md:flex items-center justify-center flex-1">
           <div className="flex items-center gap-8">
             <Link
-              href="#hero"
+              href="#"
               className="relative px-3 py-2 text-sm font-medium text-muted-foreground hover:text-foreground transition-colors after:absolute after:bottom-0 after:left-1/2 after:w-0 after:h-0.5 after:bg-linear-to-r after:from-blue-500 after:to-purple-600 after:transition-all hover:after:w-4/5 hover:after:left-1/10"
             >
               Home
             </Link>
             <Link
-              href="#about"
+              href="#hero"
               className="relative px-3 py-2 text-sm font-medium text-muted-foreground hover:text-foreground transition-colors after:absolute after:bottom-0 after:left-1/2 after:w-0 after:h-0.5 after:bg-linear-to-r after:from-blue-500 after:to-purple-600 after:transition-all hover:after:w-4/5 hover:after:left-1/10"
             >
               About
@@ -64,15 +70,18 @@ const Navbar = () => {
               </Button>
             </SheetTrigger>
             <SheetContent side="right" className="w-75 sm:w-100">
+              <SheetHeader>
+                <SheetTitle>Menu</SheetTitle>
+              </SheetHeader>
               <nav className="flex flex-col gap-4 mt-8">
                 <Link
-                  href="#hero"
+                  href="#"
                   className="text-lg font-medium hover:text-blue-500 transition-colors"
                 >
                   Home
                 </Link>
                 <Link
-                  href="#about"
+                  href="#hero"
                   className="text-lg font-medium hover:text-blue-500 transition-colors"
                 >
                   About

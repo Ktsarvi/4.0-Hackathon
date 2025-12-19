@@ -67,7 +67,7 @@ const HeroSection = () => {
             {/* Secondary image - bottom left */}
             <div className="absolute bottom-0 left-0 w-1/2 h-1/2 rounded-2xl overflow-hidden border border-border/20 shadow-lg">
               <Image
-                src="/images/carsid.png"
+                src="/images/boxid2.png"
                 alt="Data visualization"
                 fill
                 className="object-cover"
