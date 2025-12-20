@@ -1,5 +1,7 @@
 "use client";
 
+import VideoPlayer from "./components/VideoPlayer";
+
 const Dashboard = () => {
   return (
     <div className="relative min-h-screen w-full overflow-hidden bg-background">
@@ -38,31 +40,7 @@ const Dashboard = () => {
             <h2 className="mb-4 text-xl font-semibold text-foreground">
               Live Feed
             </h2>
-            <div className="aspect-video overflow-hidden rounded-lg bg-muted/50 flex items-center justify-center">
-              <div className="text-center p-4">
-                <div className="mx-auto mb-3 h-12 w-12 rounded-full bg-blue-500/10 p-2.5 text-blue-400">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    strokeWidth={1.5}
-                    stroke="currentColor"
-                    className="h-6 w-6"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      d="M15.75 10.5l4.72-4.72a.75.75 0 011.28.53v11.38a.75.75 0 01-1.28.53l-4.72-4.72M4.5 18.75h9a2.25 2.25 0 002.25-2.25v-9a2.25 2.25 0 00-2.25-2.25h-9A2.25 2.25 0 002.25 7.5v9a2.25 2.25 0 002.25 2.25z"
-                    />
-                  </svg>
-                </div>
-                <p className="text-sm text-muted-foreground">
-                  Live video feed will appear here
-                </p>
-                <p className="mt-1 text-xs text-muted-foreground">
-                  Connecting camera to videostream
-                </p>
-              </div>
-            </div>
+            <VideoPlayer />
           </div>
         </div>
       </div>
