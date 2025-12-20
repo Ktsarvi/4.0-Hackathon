@@ -6,7 +6,7 @@ from modules.database import Database
 db = Database()
 tracker = Tracker()
 
-cap = cv2.VideoCapture("data/videos/test1.mp4")
+cap = cv2.VideoCapture("data/videos/video2.mp4")
 
 while True:
     ret, frame = cap.read()

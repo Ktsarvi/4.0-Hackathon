@@ -1,45 +1,45 @@
-import cv2
-import supervision as sv
 from inference_sdk import InferenceHTTPClient
+import supervision as sv
+import cv2
 
-# 1. Setup Client
-CLIENT = InferenceHTTPClient(
+client = InferenceHTTPClient(
     api_url="https://serverless.roboflow.com",
     api_key="KeXPlFT9YrUxgWTzqlkI"
 )
 
-model_id = "yolo12-toi2r-krio3/1"
-video_path = "C:/Users/ufml/Downloads/Corrugated Boxes_ How It’s Made Step By Step Process _ Georgia-Pacific (online-video-cutter.com).mp4" # Or use 0 for webcam
-
+video_path = "data/videos/video2.mp4"
 cap = cv2.VideoCapture(video_path)
+
+width = int(cap.get(cv2.CAP_PROP_FRAME_WIDTH))
+height = int(cap.get(cv2.CAP_PROP_FRAME_HEIGHT))
+fps = cap.get(cv2.CAP_PROP_FPS)
+
+out = cv2.VideoWriter(
+    "output.mp4",
+    cv2.VideoWriter_fourcc(*"mp4v"),
+    fps,
+    (width, height)
+)
 
 box_annotator = sv.BoxAnnotator()
 label_annotator = sv.LabelAnnotator()
 
-FRAME_SKIP = 3  
-frame_count = 0
-
-while cap.isOpened():
+while True:
     ret, frame = cap.read()
     if not ret:
         break
 
-    frame_count += 1
-    
-    # Only send to API every X frames to save bandwidth/latency
-    if frame_count % FRAME_SKIP == 0:
-        # INFERENCE: Pass the 'frame' (numpy array) directly to avoid saving to disk
-        result = CLIENT.infer(frame, model_id=model_id)
-        detections = sv.Detections.from_inference(result)
+    result = client.infer(
+    frame,
+    model_id="boxdetections-fzo7o/yolo12-toi2r-krio3/1"
+)
 
-        # ANNOTATE
-        frame = box_annotator.annotate(scene=frame, detections=detections)
-        frame = label_annotator.annotate(scene=frame, detections=detections)
+    detections = sv.Detections.from_inference(result)
 
-    cv2.imshow("Real-Time Detection", frame)
+    frame = box_annotator.annotate(scene=frame, detections=detections)
+    frame = label_annotator.annotate(scene=frame, detections=detections)
 
-    if cv2.waitKey(1) & 0xFF == ord('q'):
-        break
+    out.write(frame)
 
 cap.release()
-cv2.destroyAllWindows()
+out.release()

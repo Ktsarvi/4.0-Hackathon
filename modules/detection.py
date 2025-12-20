@@ -8,7 +8,7 @@ def detect_objects(frame):
     Детекция объектов с YOLOv8.
     Возвращает список словарей: bbox и статус.
     """
-    results = model.predict(frame, verbose=False)[0]  # берем первый кадр
+    results = model.predict(frame, verbose=False)[0]  # берем первый кадрKeXPlFT9YrUxgWTzqlkI
     detected = []
 
     for box in results.boxes.data.tolist():
