@@ -3,6 +3,7 @@ from ultralytics import YOLO
 from fastapi import FastAPI
 from fastapi.responses import StreamingResponse
 
+
 app = FastAPI()
 
 # 1. Загружаем модель один раз
@@ -22,10 +23,9 @@ def generate_frames():
             # 3. Нейросеть обрабатывает кадр
             # stream=True позволяет обрабатывать поток быстрее
             results = model.predict(frame, conf=0.5, verbose=False,classes = [7,39,40,41,55,56,57,58])
-            
             # Рисуем аннотации
             annotated_frame = results[0].plot()
-            print
+
             # 4. Кодируем кадр в JPEG
             ret, buffer = cv2.imencode('.jpg', annotated_frame)
             frame_bytes = buffer.tobytes()
