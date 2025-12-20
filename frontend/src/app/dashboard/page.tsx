@@ -17,7 +17,7 @@ const Dashboard = () => {
           {/* Data Overview Card */}
           <div className="rounded-xl border border-border bg-card p-6 shadow-sm">
             <h2 className="mb-4 text-xl font-semibold text-foreground">
-              Production Metrics
+              Boxes
             </h2>
             <div className="space-y-4 text-muted-foreground">
               <div className="flex items-center justify-between">
@@ -31,6 +31,26 @@ const Dashboard = () => {
               <div className="flex items-center justify-between">
                 <span>Uptime</span>
                 <span className="font-medium text-foreground">98.5%</span>
+              </div>
+            </div>
+          </div>
+
+          <div className="rounded-xl border border-border bg-card p-6 shadow-sm">
+            <h2 className="mb-4 text-xl font-semibold text-foreground">
+              Bottles
+            </h2>
+            <div className="space-y-4 text-muted-foreground">
+              <div className="flex items-center justify-between">
+                <span>Total Units Produced</span>
+                <span className="font-medium text-foreground">1978</span>
+              </div>
+              <div className="flex items-center justify-between">
+                <span>Defect Rate</span>
+                <span className="font-medium text-green-500">6%</span>
+              </div>
+              <div className="flex items-center justify-between">
+                <span>Uptime</span>
+                <span className="font-medium text-foreground">99%</span>
               </div>
             </div>
           </div>
