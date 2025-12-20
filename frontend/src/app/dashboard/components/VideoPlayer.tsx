@@ -119,20 +119,25 @@ export default function VideoPlayer() {
   };
 
   return (
-    <div className="relative w-full h-full">
+    <div className="relative w-full aspect-video bg-gray-100 rounded-lg shadow-lg overflow-hidden">
       {isLoading && (
-        <div className="absolute inset-0 flex items-center justify-center bg-gray-100 rounded-lg">
-          <Loading />
+        <div className="absolute inset-0 flex items-center justify-center w-full h-full">
+          <div className="flex flex-col items-center justify-center gap-2">
+            <Loading />
+            <span className="text-gray-500">Loading video feed...</span>
+          </div>
         </div>
       )}
-      <img
-        ref={imgRef}
-        src={imgSrc}
-        alt="Video feed"
-        className={`w-full h-full object-contain rounded-lg shadow-lg ${
-          isLoading ? "opacity-0" : "opacity-100"
-        }`}
-      />
+      {imgSrc && (
+        <img
+          ref={imgRef}
+          src={imgSrc}
+          alt="Video feed"
+          className={`absolute inset-0 w-full h-full object-cover ${
+            isLoading ? "opacity-0" : "opacity-100"
+          }`}
+        />
+      )}
     </div>
   );
 }
