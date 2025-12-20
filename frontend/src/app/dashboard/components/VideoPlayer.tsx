@@ -11,12 +11,19 @@ export default function VideoPlayer() {
   useEffect(() => {
     let isMounted = true;
     let reader: ReadableStreamDefaultReader<Uint8Array> | null = null;
-    let animationFrameId: number;
 
     const updateFrame = async () => {
       try {
         const response = await fetch("/api/video");
-        reader = response.body?.getReader();
+        if (!response.ok) {
+          const error = await response.text();
+          console.error("Server response error:", error);
+          throw new Error(`Server responded with status: ${response.status}`);
+        }
+        if (!response.body) {
+          throw new Error("Response has no body");
+        }
+        reader = response.body.getReader();
 
         if (!reader) {
           throw new Error("Could not get reader from response");
@@ -86,9 +93,6 @@ export default function VideoPlayer() {
       isMounted = false;
       if (reader) {
         reader.cancel().catch(console.error);
-      }
-      if (animationFrameId) {
-        cancelAnimationFrame(animationFrameId);
       }
       if (imgRef.current?.src) {
         URL.revokeObjectURL(imgRef.current.src);
